@@ -1,0 +1,77 @@
+---
+import signature from '../../public/arez_signature.png';
+import discord from '../../public/discord.svg';
+import twitter from '../../public/twitter.svg';
+import youtube from '../../public/youtube.svg';
+---
+
+<footer>
+    <p>Project Parabellum 2023</p>
+    <img src={signature} alt="arez signature" class="arez_signature">
+    <div class="footer__social">
+        <a href="https://discord.gg/TffPbTS" target="_blank">
+            <img src={discord} alt="discord">
+        </a>
+        <a href="https://discord.gg/TffPbTS" target="_blank">
+            <img src={twitter} alt="twitter">
+        </a>
+        <!-- 
+        <a href="#" target="_blank">
+            <img src={youtube} alt="youtube">
+        </a>-->
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 0 18% 50px 18%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__social {
+        display: flex;
+        padding: 0px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: clamp(50px, 8vw, 150px);
+    }
+
+    p {
+        font-size: 20px;
+        text-shadow: 0px 0px 100px #FFFFFF;
+        mix-blend-mode: normal;
+    }
+
+    .footer__social img {
+        transition: all 0.4s;
+        opacity: 0.75;
+    }
+
+    .footer__social img:hover {
+        transition: all 0.4s;
+        opacity: 1;
+    }
+
+    .arez_signature {
+        margin: 0 12%;
+    }
+
+    @media screen and (max-width: 800px) {
+        .footer__social {
+            flex-direction: column;
+        }
+
+        footer {
+            flex-direction: column;
+        }
+
+        .arez_signature {
+            margin: 40px 20%;
+        }
+    }
+</style>
