@@ -12,14 +12,49 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="" id="light-scheme-icon">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-		<meta name="generator" content={Astro.generator} />
+		<!-- Primary Meta Tags -->
+		<title>Project Parabellum</title>
+		<meta name="title" content="Project Parabellum" />
+		<meta name="description" content="CS:GO Total Conversion Mod Project" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://arez.design/" />
+		<meta property="og:title" content="Project Parabellum" />
+		<meta property="og:description" content="CS:GO Total Conversion Mod Project" />
+		<meta property="og:image" content="https://arez.design/preview.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://arez.design/" />
+		<meta property="twitter:title" content="Project Parabellum" />
+		<meta property="twitter:description" content="CS:GO Total Conversion Mod Project" />
+		<meta property="twitter:image" content="https://arez.design/preview.png" />
+
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
+
+	<script>
+		var darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		handleDarkmode(darkModeMediaQuery);
+		function handleDarkmode(e){
+			var darkModeOn = e.matches; // true if dark mode is enabled
+			var favicon = document.querySelector('link[rel="icon"]');
+			
+			if(darkModeOn){
+				favicon.href = '/favicon_light.svg';
+			}else{
+				favicon.href = '/favicon_dark.svg';
+			}
+		}
+		darkModeMediaQuery.addEventListener('update', handleDarkmode);
+	</script>
 </html>
+
