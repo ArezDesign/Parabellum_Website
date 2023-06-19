@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://ArezDesign.github.io',
+  site: 'https://arez.design',
+  base: '/parabellum',
 })
