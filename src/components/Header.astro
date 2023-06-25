@@ -32,13 +32,13 @@ import arrow from '../../public/Arrow.svg';
         margin: 100px 0;
         font-weight: 700;
         font-size: clamp(28px, 6.8vw, 128px);
-        /* font-size: 6.25em; */
         line-height: 190px;
         letter-spacing: 0.5em;
         text-align: center;
         mix-blend-mode: difference;
         z-index: 8;
         margin-right:-0.5em;
+        user-select: none;
     }
     
     p {
@@ -49,6 +49,7 @@ import arrow from '../../public/Arrow.svg';
         text-shadow: 0px 0px 100px #FFFFFF;
         opacity: 0.5;
         margin: 0;
+        user-select: none;
     }
 
     a {
@@ -72,6 +73,12 @@ import arrow from '../../public/Arrow.svg';
         width: clamp(50px, 4.25vw, 82px);
         mix-blend-mode: difference;
         
+    }
+
+    @media screen and (min-width: 1920px) {
+        h1 {
+            margin: 270px;
+        }
     }
 
     @media screen and (max-width: 1100px) {
