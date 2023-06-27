@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import Footer from '../components/Footer.astro';
+import Question from '../components/Question.astro';
+import GlobalStyles from '../components/GlobalStyles.astro';
+
+// Assets
+import overview from '../../public/overview.png';
+import vision from '../../public/vision.png';
+import faq from '../../public/faq.png';
+import roadmap from '../../public/roadmap.png';
+import discord from '../../public/discord.svg';
+import twitter from '../../public/twitter.svg';
+import youtube from '../../public/youtube.svg';
+---
+
+<GlobalStyles></GlobalStyles>
+
+<Layout title="Parabellum">
+	<Header></Header>
+	<main>
+		<Section
+			title="01://PROJECT OVERVIEW"
+			image={overview}
+			id="overview">
+
+			<p>Parabellum is a total conversion modification of CS:GO with focus on <span class="strong">realism</span> and slow paced teamwork.<br><br>
+				It takes place in an <span class="strong">original</span> realistic depiction of post WW3 dystopia.<br><br>
+				Project started back in June 2019, and went through several iterations.<br><br>
+				All of our content is <span class="strong">made in house</span> by our talented team of artists. We try to maintain a quality bar competitive with modern titles, as much as it is possible by a small team of Source Engine modders.
+			</p>
+		</Section>
+
+		<Section
+			title="02://OUR VISION"
+			image={vision}
+			id="vision">
+
+			<p>
+				<span class="title">REALISM. TEAMWORK. TACTICS.</span> <br><br>
+				Modern shooters are flat. Mil-sims are cumbersome.<br><br>
+				Let’s make something <span class="strong">grounded</span> and <span class="strong">punishing</span>, yet <span class="strong">responsive</span> and <span class="strong">fluid</span>.<br><br>
+				Our vision is to blend realism with accessibility and competitive nature of <span class="strong">Counter-Strike</span>. We prioritize user experience and "easy to learn, hard to master" formula, while also maintaining a highly realistic depiction of warfare.
+			</p>
+		</Section>
+
+		<Section
+			title="03://ROADMAP"
+			image={roadmap}
+			id="follow">
+
+			<p>
+				There are a lot of variables outside of our control that affect our plans, and we don’t like to give promises we cannot fulfill.<br><br>
+				With that said, here is a very general roadmap of our development cycle:<br><br>
+				<ul>
+					<li><span class="strong">Q4 2023</span> - Internal Pre-Alpha;</li>
+					<li><span class="strong">Q1 2024</span> - Closed Alpha Test;</li>
+					<li><span class="strong">Q2-Q3 2024</span> - Limited Beta Test;</li>
+					<li><span class="strong">Q4 2024</span> - From here on, we will continue populating the project with content and release it whenever we feel it’s ready.</li>
+				</ul>
+			</p>
+			<br>
+			<p>
+				<span class="title">Follow the development</span><br>
+				We will be picking our first testers, among our followers. Be the first one to follow us, and be the first one to test the project.
+			</p>
+			<div class="socials">
+				<a href="https://discord.gg/TffPbTS" target="_blank">
+					<img src={discord} alt="discord">
+				</a>
+				<a href="https://twitter.com/Parabellum_Game" target="_blank">
+					<img src={twitter} alt="twitter">
+				</a>
+				
+				<!-- 
+				<a href="#" target="_blank" style="opacity: 0">
+					<img src={youtube} alt="youtube">
+				</a>-->
+			</div>
+		</Section>
+
+		<Section
+			title="04://FAQ"
+			image={faq}
+			id="faq">
+			
+			<ul class="q">
+				<li class="a">
+					<Question
+						question="Q:1//Will Parabellum be on Steam?"
+						answer="We will do everything in our power to get it on Steam. Valve is generally open to listing such projects on Steam.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q2://How much will Parabellum cost?"
+						answer="Parabellum will be released free of charge.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q3://Is parabellum a standalone game?"
+						answer="Parabellum is a total conversion mod, which means that we use CS:GO code as a base, but replace every asset to make it an entirely unique standalone experience.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q4://Why are you NOT MAKING PARABELLUM IN UNREAL ENGINE OR UNITY"
+						answer="Making a quality game project is not easy. Being long time fans of Source Engine, it provides us with a very solid foundation of core mechanics like movement, gunplay, netcode and etc. While we would love to develop the project into a full sized standalone title in the future, this is what we have access to right now.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q5://How many people are working on Parabellum?"
+						answer="The core team consists of 5 developers, with around 5 more freelancers doing contract work from time to time.<br><br>In total, over 25 individuals have contributed to the project.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q6://How long has Parabellum been in works?"
+						answer="Project was put in motion on June 2019 by Arez. For the first two years, it was mostly tests and we tried to figure out what kind of project we want to build. Since then, Parabellum went through several iterations, before we learned the right way to approach the project. <br><br>In 2021, the project was completely rebooted, with a new team of talented artists.">
+					</Question>
+				</li>
+				<li class="a">
+					<Question
+						question="Q7://Can I contribute to the project?"
+						answer="We are always looking to expand our team with talented developers. If you have passion for Source, send a message on our Discord, to see if you can help the development. We are happy to offer monetary compensations for every team member.">
+					</Question>
+				</li>
+				
+			</ul>
+
+		</Section>	
+	</main>
+	<Footer></Footer>
+</Layout>
+
+<style>
+	html, body {
+		margin: 0;
+	   	padding: 0;
+		width: 100%;
+		height: 100%;
+	   	scroll-behavior: smooth;
+		background-color: black;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	ul {
+		margin: -16px 0 0 0;
+		padding-left: 36px;
+	}
+
+	.strong {
+		text-decoration-line: underline;
+		font-weight: 700;
+	}
+
+	.q {
+		margin-top: 18px;
+		list-style: none;
+		padding: 0;
+	}
+	
+	.a {
+		margin-bottom: 16px;
+	}
+
+	.title {
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 36px;
+		text-transform: uppercase;
+	}
+
+	.socials {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 90%;
+		margin-top: 48px;
+		padding: 0 32%;
+	}
+
+	.socials img {
+        transition: all 0.4s;
+        opacity: 0.75;
+    }
+
+    .socials img:hover {
+        transition: all 0.4s;
+        opacity: 1;
+    }
+
+	@media screen and (max-width: 1100px) {
+		.socials {
+			padding: 28px;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		.title {
+			font-size: 14px;
+			line-height: 24px;
+		}
+
+		.socials {
+			padding: 24;
+		}
+	}
+
+	@media screen and (max-width: 520px) {
+		.socials {
+			padding: 20px;
+		}
+	}
+	
+	p {
+		mix-blend-mode: normal;
+		text-shadow: 0px 0px 100px #FFFFFF;
+	}
+</style>
