@@ -1,0 +1,25 @@
+---
+const { title, id, visible = true } = Astro.props;
+---
+
+
+
+
+{visible ? <li id={id}>{title}</li> : <li id={id} style="display: none;">{title}</li>}
+
+<style>
+    li {
+        width: 36px;
+        background-color: #FFFFFF;
+        color: #010101;
+        font-weight: 700;
+        font-size: clamp(12px, 1.5vw, 24px);
+        line-height: normal;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+        text-shadow: 0px 0px 100px #FFFFFF;
+        margin: 0;
+        padding: 10px 0;
+    }
+</style>

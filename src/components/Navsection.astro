@@ -1,0 +1,30 @@
+---
+const { href, id, visible = true} = Astro.props;
+
+import Navtitle from "./Navtitle.astro";
+---
+
+{ visible 
+    ?   <li>
+            <a href={href} id={id}></a>
+        </li>
+    :   <li>
+            <a href={href} id={id} style="display: none;"></a>
+        </li>
+}
+
+
+
+
+
+<style>
+    a {
+        width: 36px;
+        height: 36px;
+        display: block;
+        box-sizing: border-box;
+        border: 5px solid #fff;
+        cursor: pointer;
+        pointer-events: none;
+    }
+</style>

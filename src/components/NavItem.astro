@@ -1,0 +1,58 @@
+---
+const { title, id, href, active = false } = Astro.props;
+---
+
+<li>
+    { active 
+        ?   <a href={href} class="title" id={`${id}H`} data-title={title}></a>
+        :   <a href={href} id={`${id}H`} data-title={title}></a>
+    }
+</li>
+
+<style>
+    a {
+        box-sizing: border-box;
+        border: 5px solid #fff;
+        text-transform: uppercase;
+        font-size: clamp(12px, 1.5vw, 24px);
+        text-decoration: none;
+        font-weight: 700;
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+    }
+
+    a::after {
+        content: attr(data-title);
+        width: 36px;
+        height: auto;
+        transition: all 1s;
+        display: block;
+        max-height: 36px;
+        color: transparent;
+    }
+
+    .title::after {
+        background-color: #fff;
+        pointer-events: none;
+        cursor: default;
+        height: auto;
+        max-height: 300px;
+        display: block;
+        transition: all 1s;
+        color: #010101;
+    }
+
+    @media screen and (max-width: 768px) {
+        a {
+            border: 2px solid #fff;
+            line-height: 10px;
+        
+        }
+
+        a::after {
+            width: 16px;
+            max-height: 16px;
+        }
+    }
+
+</style>

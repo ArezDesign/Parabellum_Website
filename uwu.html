@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS for the sidebar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #f1f1f1;
+            overflow: auto;
+        }
+
+        /* CSS for the sections */
+        section {
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* CSS for the active link */
+        .active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+        <!-- Add more links as needed -->
+    </div>
+
+    <section id="section1">
+        <h2>Section 1</h2>
+        <p>This is the first section.</p>
+    </section>
+
+    <section id="section2">
+        <h2>Section 2</h2>
+        <p>This is the second section.</p>
+    </section>
+
+    <section id="section3">
+        <h2>Section 3</h2>
+        <p>This is the third section.</p>
+    </section>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const activeLink = document.querySelector(`.navbar a[href="#${id}"]`);
+                    const activeLinks = document.querySelectorAll('.navbar a.active');
+                    activeLinks.forEach(link => link.classList.remove('active'));
+                    activeLink.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+---
+const { sections } = Astro.props;
+
+import NavItem from './NavItem.astro';
+---
+
+<script>
+    let sections = [
+        'overview',
+        'vision',
+        'roadmap',
+        'faq'
+    ];
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    let prevElement = document.querySelector("#overview");
+
+    let intersectionObserver = new IntersectionObserver(function (entries) {
+
+        if (entries[0].intersectionRatio > 0) {
+            document.querySelector(`#${prevElement.id}H`).classList.remove('title');
+
+            prevElement = entries[0].target;
+     
+            document.querySelector(`#${prevElement.id}H`).classList.add('title');
+        }
+
+    }, observerOptions);
+
+    intersectionObserver.observe(document.querySelector("#overview"));
+    intersectionObserver.observe(document.querySelector("#vision"));
+    intersectionObserver.observe(document.querySelector("#roadmap"));
+    intersectionObserver.observe(document.querySelector("#faq"));
+</script>
+
+<nav class="anchor__nav">
+    <ul class="anchor__nav__list">
+        {sections.map((section) => (
+            
+            section.id == 'overview' 
+            ?   <NavItem title={section.title} href={'#'+section.id} id={`${section.id}`} active="true"></NavItem>
+            :   <NavItem title={section.title} href={'#'+section.id} id={`${section.id}`}></NavItem>
+            
+        )) }
+       
+    </ul>
+</nav>
+
+<style>
+    nav {
+        position: sticky;
+        top: 16vh;
+        height: 100%;
+    }
+
+    ul {
+        margin: 0 0 0 50px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        list-style: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        ul {
+            gap: 16px;
+            margin: 0 0 0 0px;
+        }
+
+        nav {
+            margin-right: 16px;
+        }
+        
+    }
+</style>

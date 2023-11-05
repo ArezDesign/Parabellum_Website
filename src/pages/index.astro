@@ -5,6 +5,7 @@ import Section from '../components/Section.astro';
 import Footer from '../components/Footer.astro';
 import Question from '../components/Question.astro';
 import GlobalStyles from '../components/GlobalStyles.astro';
+import Nav from '../components/Nav.astro';
 
 // Assets
 import overview from '../../public/overview.png';
@@ -13,7 +14,26 @@ import faq from '../../public/faq.png';
 import roadmap from '../../public/roadmap.png';
 import discord from '../../public/discord.svg';
 import twitter from '../../public/twitter.svg';
-import youtube from '../../public/youtube.svg';
+//import youtube from '../../public/youtube.svg';
+
+const sections = [
+	{
+		title: "01://OVERVIEW",
+		id: "overview"
+	},
+	{
+		title: "02://VISION",
+		id: "vision"
+	},
+	{
+		title: "03://ROADMAP",
+		id: "roadmap"
+	},
+	{
+		title: "04://FAQ",
+		id: "faq"
+	}
+]
 ---
 
 <GlobalStyles></GlobalStyles>
@@ -21,8 +41,13 @@ import youtube from '../../public/youtube.svg';
 <Layout title="Parabellum">
 	<Header></Header>
 	<main>
-		<Section
-			title="01://PROJECT OVERVIEW"
+
+		<Nav sections={sections}></Nav>
+
+
+		<div class="sections__container">
+			<Section
+			title="01://OVERVIEW"
 			image={overview}
 			id="overview">
 
@@ -34,7 +59,7 @@ import youtube from '../../public/youtube.svg';
 		</Section>
 
 		<Section
-			title="02://OUR VISION"
+			title="02://VISION"
 			image={vision}
 			id="vision">
 
@@ -49,7 +74,7 @@ import youtube from '../../public/youtube.svg';
 		<Section
 			title="03://ROADMAP"
 			image={roadmap}
-			id="follow">
+			id="roadmap">
 
 			<p>
 				There are a lot of variables outside of our control that affect our plans, and we don’t like to give promises we cannot fulfill.<br><br>
@@ -132,7 +157,10 @@ import youtube from '../../public/youtube.svg';
 				
 			</ul>
 
-		</Section>	
+		</Section>
+		</div>
+
+			
 	</main>
 	<Footer></Footer>
 </Layout>
@@ -144,13 +172,21 @@ import youtube from '../../public/youtube.svg';
 		width: 100%;
 		height: 100%;
 	   	scroll-behavior: smooth;
-		background-color: black;
+		background-color: #000;
 	}
 
 	main {
 		display: flex;
+		flex-direction: row-reverse;
+		justify-content: center;
+	}
+
+	.sections__container {
+		width: fit-content;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
+		gap: 300px;
 	}
 
 	ul {
@@ -165,8 +201,8 @@ import youtube from '../../public/youtube.svg';
 
 	.q {
 		margin-top: 18px;
-		list-style: none;
 		padding: 0;
+		list-style: none;
 	}
 	
 	.a {
@@ -212,7 +248,20 @@ import youtube from '../../public/youtube.svg';
 		}
 
 		.socials {
-			padding: 24;
+			padding: 24px;
+		}
+
+		p {
+			mix-blend-mode: normal;
+			text-shadow: 0px 0px 100px #FFFFFF;
+			font-size: 12px;
+			line-height: normal;
+			font-weight: 400;
+			letter-spacing: auto;
+		}
+
+		.sections__container {
+			gap: 200px;
 		}
 	}
 
@@ -222,8 +271,5 @@ import youtube from '../../public/youtube.svg';
 		}
 	}
 	
-	p {
-		mix-blend-mode: normal;
-		text-shadow: 0px 0px 100px #FFFFFF;
-	}
+	
 </style>

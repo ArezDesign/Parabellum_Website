@@ -1,5 +1,5 @@
 ---
-const { title, image, id} = Astro.props;
+const { title, image, id, index, sectionsCount } = Astro.props;
 ---
 
 <section id={id}>
@@ -7,7 +7,6 @@ const { title, image, id} = Astro.props;
         <img src={image}></img>
         <slot />
     </div>
-    <p class="section__title">{title}</p>
 </section>
 
 <style>
@@ -23,8 +22,7 @@ const { title, image, id} = Astro.props;
     }
 
     section {
-        margin-bottom: 300px;
-        width: 48%;
+        width: 40vw;
         display: flex;
     }
 
@@ -39,8 +37,7 @@ const { title, image, id} = Astro.props;
 
     @media screen and (max-width: 767px) {
         section {
-            margin-bottom: 120px;
-            width: 70%;
+            width: 80%;
             line-height: 18px;
         }
 

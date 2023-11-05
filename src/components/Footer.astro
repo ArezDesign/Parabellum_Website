@@ -30,6 +30,7 @@ import youtube from '../../public/youtube.svg';
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        margin-top: 330px;
     }
 
     .footer__social {
@@ -47,6 +48,10 @@ import youtube from '../../public/youtube.svg';
         mix-blend-mode: normal;
     }
 
+    a {
+        line-height: 0;
+    }
+
     .footer__social img {
         transition: all 0.4s;
         opacity: 0.75;
@@ -62,16 +67,20 @@ import youtube from '../../public/youtube.svg';
     }
 
     @media screen and (max-width: 800px) {
-        .footer__social {
-            flex-direction: column;
-        }
-
         footer {
-            flex-direction: column;
+            flex-direction: column-reverse;
+            padding: 0 12% 5px 12%;
+            margin-top: 200px;
         }
 
         .arez_signature {
             margin: 40px 20%;
+        }
+
+        p {
+            font-weight: 400;
+            letter-spacing: normal;
+            font-size: 14px;
         }
     }
 </style>
