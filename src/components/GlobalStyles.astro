@@ -22,6 +22,19 @@
             font-size: 12px;
             letter-spacing: 0.18em;
         }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            display: none;
+            width: 0;
+        }
+
+        /* Hide scrollbar for IE, Edge add Firefox */
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none; /* Firefox */
+        }
     }
 
     #overview {
@@ -45,12 +58,12 @@
         border-radius: 12px;
         background-clip: padding-box;
         background-color: #acacac;
-        
-     
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background-color: #FFFFFF;
     }
+
+
 </style>
